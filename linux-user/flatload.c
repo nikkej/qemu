@@ -632,10 +632,7 @@ static int load_flat_file(struct linux_binprm * bprm,
             if (rp == RELOC_FAILED)
                 return -ENOEXEC;
 
-            /* Get the pointer's value.  */
-            if (get_user_ual(addr, rp))
-                return -EFAULT;
-            addr = flat_get_addr_from_rp(addr, relval, flags, &persistent);
+            addr = flat_get_addr_from_rp(rp, relval, flags, &persistent);
             if (addr != 0) {
                 /*
                  * Do the relocation.  PIC relocs in the data section are

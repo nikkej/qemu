@@ -41,14 +41,14 @@ flat_get_addr_from_rp(abi_ulong ul_ptr, abi_ulong relval, abi_ulong flags, abi_u
     case FLAT_BFIN_RELOC_TYPE_16_BIT:
     case FLAT_BFIN_RELOC_TYPE_16H_BIT:
         if (get_user_u16(val, ul_ptr)) {
-            fprintf(stderr, "BINFMT_FLAT: unable to read reloc at %#x\n", ul_ptr);
+            fprintf(stderr, "BINFMT_FLAT: unable to read 16bit reloc at %#x\n", ul_ptr);
             abort();
         }
         val += *persistent;
         break;
     case FLAT_BFIN_RELOC_TYPE_32_BIT:
         if (get_user_u32(val, ul_ptr)) {
-            fprintf(stderr, "BINFMT_FLAT: unable to read reloc at %#x\n", ul_ptr);
+            fprintf(stderr, "BINFMT_FLAT: unable to read 32bit reloc at %#x\n", ul_ptr);
             abort();
         }
         break;
